@@ -1,0 +1,478 @@
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midnight | رمان</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(192, 192, 192, 0.08) 0%, transparent 40%);
+    }
+
+    header {
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #c0c0c0, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .logo span {
+      font-size: 13px;
+      font-weight: 300;
+      -webkit-text-fill-color: #888;
+      margin-right: 8px;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #c0c0c0;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #a855f7;
+    }
+
+    .login-btn {
+      background: linear-gradient(135deg, #a855f7, #6d28d9);
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.7);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 15px 40px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff, #c0c0c0, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .hero .moon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8));
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #999;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+    }
+
+    .search-box {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .search-box input::placeholder {
+      color: #666;
+    }
+
+    .search-box input:focus {
+      border-color: #a855f7;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+    }
+
+    .section {
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 5px;
+      height: 26px;
+      background: linear-gradient(180deg, #a855f7, #6d28d9);
+      border-radius: 3px;
+    }
+
+    .genres-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    .genre-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 18px;
+      padding: 25px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .genre-card:hover {
+      transform: translateY(-8px);
+      border-color: #a855f7;
+      box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4);
+    }
+
+    .genre-card .icon {
+      font-size: 34px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .genre-card .name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e0e0e0;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 18px;
+    }
+
+    .book-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(192, 192, 192, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      border-color: #a855f7;
+      box-shadow: 0 10px 35px rgba(168, 85, 247, 0.3);
+    }
+
+    .book-cover {
+      height: 200px;
+      background: linear-gradient(135deg, #1a1a2e, #2d1b4e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+      color: #a855f7;
+    }
+
+    .book-info {
+      padding: 12px;
+    }
+
+    .book-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .book-author {
+      font-size: 12px;
+      color: #888;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #555;
+      font-size: 13px;
+      border-top: 1px solid rgba(168, 85, 247, 0.2);
+      margin-top: 40px;
+    }
+
+    footer .brand {
+      color: #a855f7;
+      font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+      .hero .moon {
+        font-size: 32px;
+      }
+      .genres-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .book-cover {
+        height: 160px;
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo" onclick="showPage('home')">Midnight <span>رمان</span></div>
+  <nav>
+    <a onclick="showPage('home')">خانه</a>
+    <a onclick="showPage('genres')">ژانرها</a>
+    <a onclick="showPage('books')">رمان‌ها</a>
+    <a onclick="showPage('login')" class="login-btn">ورود</a>
+  </nav>
+</header>
+
+<div id="page-home" class="page">
+  <section class="hero">
+    <span class="moon">🌙</span>
+    <h1>Midnight</h1>
+    <p>جایی برای خواندن و نوشتن رمان‌های شبانه — رایگان، آزاد، برای همه.</p>
+    <div class="search-box">
+      <input type="text" placeholder="جستجوی رمان، نویسنده یا ژانر...">
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">تازه‌ها</h2>
+    <div class="books-grid">
+      <div class="book-card" onclick="showPage('book')">
+        <div class="book-cover">🌙</div>
+        <div class="book-info">
+          <div class="book-title">بی‌نام</div>
+          <div class="book-author">نویسنده ناشناس</div>
+        </div>
+      </div>
+      <div class="book-card" onclick="showPage('book')">
+        <div class="book-cover">💜</div>
+        <div class="book-info">
+          <div class="book-title">سایه‌های نیمه‌شب</div>
+          <div class="book-author">نویسنده ناشناس</div>
+        </div>
+      </div>
+      <div class="book-card" onclick="showPage('book')">
+        <div class="book-cover">🌌</div>
+        <div class="book-info">
+          <div class="book-title">ستاره‌های خاموش</div>
+          <div class="book-author">نویسنده ناشناس</div>
+        </div>
+      </div>
+      <div class="book-card" onclick="showPage('book')">
+        <div class="book-cover">🖤</div>
+        <div class="book-info">
+          <div class="book-title">قلب سیاه</div>
+          <div class="book-author">نویسنده ناشناس</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-genres" class="page" style="display:none;">
+  <section class="hero">
+    <h1>ژانرها</h1>
+    <p>دنیای رمان‌ها رو بر اساس ژانر مورد علاقه‌ت کاوش کن.</p>
+  </section>
+
+  <section class="section">
+    <div class="genres-grid">
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">💜</span><div class="name">عاشقانه</div></div>
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">🐉</span><div class="name">فانتزی</div></div>
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">🔍</span><div class="name">معمایی</div></div>
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">👻</span><div class="name">ترسناک</div></div>
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">🚀</span><div class="name">علمی-تخیلی</div></div>
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">⚔️</span><div class="name">ماجراجویی</div></div>
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">🎭</span><div class="name">درام</div></div>
+      <div class="genre-card" onclick="showPage('books')"><span class="icon">🏛️</span><div class="name">تاریخی</div></div>
+    </div>
+  </section>
+</div>
+
+<div id="page-books" class="page" style="display:none;">
+  <section class="hero">
+    <h1>رمان‌ها</h1>
+    <p>همه رمان‌های Midnight.</p>
+  </section>
+
+  <section class="section">
+    <div class="books-grid">
+      <div class="book-card" onclick="showPage('book')">
+        <div class="book-cover">🌙</div>
+        <div class="book-info">
+          <div class="book-title">بی‌نام</div>
+          <div class="book-author">نویسنده ناشناس</div>
+        </div>
+      </div>
+      <div class="book-card" onclick="showPage('book')">
+        <div class="book-cover">💜</div>
+        <div class="book-info">
+          <div class="book-title">سایه‌های نیمه‌شب</div>
+          <div class="book-author">نویسنده ناشناس</div>
+        </div>
+      </div>
+      <div class="book-card" onclick="showPage('book')">
+        <div class="book-cover">🌌</div>
+        <div class="book-info">
+          <div class="book-title">ستاره‌های خاموش</div>
+          <div class="book-author">نویسنده ناشناس</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-login" class="page" style="display:none;">
+  <section class="hero">
+    <span class="moon">🔐</span>
+    <h1>ورود</h1>
+    <p>برای خواندن و دانلود رمان‌ها وارد شو.</p>
+  </section>
+
+  <section class="section" style="max-width:400px; margin:0 auto;">
+    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(168,85,247,0.3); border-radius:20px; padding:30px;">
+      <input type="email" placeholder="ایمیل" style="width:100%; padding:14px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(168,85,247,0.3); background:rgba(255,255,255,0.05); color:white; font-family:inherit; font-size:14px; outline:none;">
+      <input type="password" placeholder="رمز عبور" style="width:100%; padding:14px; margin-bottom:20px; border-radius:12px; border:1px solid rgba(168,85,247,0.3); background:rgba(255,255,255,0.05); color:white; font-family:inherit; font-size:14px; outline:none;">
+      <button class="login-btn" style="width:100%; padding:14px; font-size:15px; border:none; cursor:pointer; font-family:inherit;">ورود</button>
+    </div>
+  </section>
+</div>
+
+<div id="page-book" class="page" style="display:none;">
+  <section class="hero">
+    <span class="moon">🌙</span>
+    <h1>بی‌نام</h1>
+    <p style="color:#a855f7;">نویسنده ناشناس · عاشقانه</p>
+  </section>
+
+  <section class="section" style="max-width:700px; margin:0 auto;">
+    <h2 class="section-title">خلاصه</h2>
+    <p style="line-height:2; color:#bbb; margin-bottom:30px;">
+      اینجا خلاصه رمان قرار می‌گیره. خواننده‌ها با خوندن این بخش می‌فهمن رمان درمورد چیه و آیا به دردشون می‌خوره یا نه. پس خلاصه رو جذاب بنویس!
+    </p>
+
+    <h2 class="section-title">دسترسی</h2>
+    <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:20px;">
+      <button onclick="checkAccess()" style="background:linear-gradient(135deg,#a855f7,#6d28d9); color:white; border:none; padding:15px 30px; border-radius:25px; font-family:inherit; font-size:15px; font-weight:700; cursor:pointer; box-shadow:0 0 25px rgba(168,85,247,0.4);">
+        📥 دانلود PDF
+      </button>
+      <button onclick="checkAccess()" style="background:rgba(255,255,255,0.05); color:#e0e0e0; border:1px solid rgba(168,85,247,0.4); padding:15px 30px; border-radius:25px; font-family:inherit; font-size:15px; font-weight:700; cursor:pointer;">
+        📖 خوندن آنلاین
+      </button>
+    </div>
+
+    <h2 class="section-title" style="margin-top:50px;">نظرات</h2>
+    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(168,85,247,0.2); border-radius:15px; padding:20px; margin-bottom:15px;">
+      <div style="color:#a855f7; font-weight:700; margin-bottom:8px;">کاربر مهمان</div>
+      <div style="color:#aaa; line-height:1.8;">این رمان فوق‌العاده‌ست! منتظر فصل بعدیم...</div>
+    </div>
+
+    <textarea placeholder="نظر خودت رو بنویس..." style="width:100%; padding:15px; border-radius:12px; border:1px solid rgba(168,85,247,0.3); background:rgba(255,255,255,0.05); color:white; font-family:inherit; font-size:14px; outline:none; min-height:100px; resize:vertical;"></textarea>
+  </section>
+</div>
+
+<footer>
+  ساخته شده با 🖤 برای <span class="brand">Midnight</span> — تمامی حقوق محفوظ است.
+</footer>
+
+<script>
+  let isLoggedIn = false;
+
+  function showPage(pageName) {
+    const allPages = document.querySelectorAll('.page');
+    allPages.forEach(page => page.style.display = 'none');
+
+    const targetPage = document.getElementById('page-' + pageName);
+    if (targetPage) {
+      targetPage.style.display = 'block';
+    }
+
+    window.scrollTo(0, 0);
+  }
+
+  function checkAccess() {
+    if (isLoggedIn) {
+      alert('✅ خوش اومدی! رمان برای خوندن آماده‌ست.');
+    } else {
+      alert('⚠️ برای دانلود و خوندن رمان، اول باید ثبت‌نام کنی!');
+      showPage('login');
+    }
+  }
+</script>
+
+</body>
+  </html>
